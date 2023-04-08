@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>GPA Analyzer</title>
+
+<link src="https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff"
+ rel="stylesheet"   >
+</link>
+<link rel="stylesheet" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/dist/mdb5/standard/core.min.css">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet" />
+
+  <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>  
+    
+
+
+  <link rel="stylesheet" href="{{url_for('static', filename='/css/dashboard.css')}}">
+  
+</head>
+
+<body>
+    <!-- Navbar -->
+   
+    <!-- Navbar -->
+
+
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block  sidebar collapse" style="overflow-y:auto">
+        <div class="position-sticky ">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active " aria-current="page" href="index.php">
+              <div class="row">
+
+                    <div class="col-md-3">
+                    <img src="{{ url_for('static', filename='/imgs/COEP.png') }}" style="max-width:50px" alt="">
+              </div>
+              <div class="col-md-9 my-1">
+                        COEP Tech University's
+                        <h4>GPA Analyzer</h4>
+              </div>
+              </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="sellers.php">
+                        <span data-feather="book-open"></span> Manage Courses
+                    </a>
+                    <a class=" nav-link sub-links">
+                        <div class="borderop">
+
+                            Add / Remove Courses
+                        </div>
+                    </a>
+                    <a class=" nav-link sub-links">
+                        <div class="borderop">
+                            View
+                        </div>
+
+                    </a>
+                    <a class=" nav-link sub-links">
+                        <div class="borderop">
+                          Course History
+                        </div>
+                    </a>
+                   
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="logout.php">
+                        <button type="button" class="btn btn-primary" style="color: #e9e9fe; background-color: #312e65; border-color: #e9e9fe; margin-top: 10px; width: 100%;">
+                            Log out
+                        </button>
+                    </a>
+                </li>
+            </ul>
+
+
+
+        </div>
+
+
+    </nav>
+
+<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+
+  <script >
+    feather.replace({ 'aria-hidden': 'true' })
+    </script>
+
+  </body>

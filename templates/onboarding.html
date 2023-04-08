@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Onboarding Start Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/dist/mdb5/standard/core.min.css">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet" />
+
+</head>
+<body>
+
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-sm-12 col-md-8 col-lg-6">
+
+          <img src="{{url_for('static', filename='/imgs/COEP.png')}}" class="img-fluid mx-auto d-block" style="max-width:100px">
+      <h2 class="text-center my-4">
+
+            COEP Tech University's
+                        GPA Analyzer
+
+             </h2>
+      <div class="progress mb-4">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:25%"></div>
+      </div>
+      <div class="row mb-4">
+        <div class="col-sm-3 col-md-3 col-lg-3 text-center">
+         <strong>
+<p>Step 1</p>
+
+              </strong>         </div>
+        <div class="col-sm-3 col-md-3 col-lg-3 text-center">
+          <p>Step 2</p>
+        </div>
+        <div class="col-sm-3 col-md-3 col-lg-3 text-center">
+          <p>Step 3</p>
+        </div>
+        <div class="col-sm-3 col-md-3 col-lg-3 text-center">
+          <p>Step 4</p>
+        </div>
+      </div>
+      <form>
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" class="form-control" id="name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email address:</label>
+          <input type="email" class="form-control" id="email">
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" class="form-control" id="password">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
