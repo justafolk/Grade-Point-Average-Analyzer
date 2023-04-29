@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  {% block head %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %} {% endblock %}</title>
+
+  <link rel="stylesheet" href="{{url_for('static', filename='/css/main.css')}}">
+  {% endblock %}
+</head>
+
+<body> 
+  
+  
+  <section class="main-content columns is-fullheight">
+
+  <aside class="column menu is-2  section is-normal fixed " style=" padding-right: 10px; ">
+    <p class="menu-label subtitle is-size-6">
+      <strong>
+        Good Morning, Avdhut! 🌞
+
+      </strong>
+    </p>
+    <br>
+    <ul class="menu-list">
+      <li><a class="{% block home %} {% endblock %}">Home</a></li>
+      <li><a class="{% block myprofile %} {% endblock %}">My Profile</a></li>
+      <li><a class="{% block changepass %} {% endblock %}">Change Password</a></li>
+    </ul>
+    <p class="menu-label">
+      Semesters
+    </p>
+    <ul class="menu-list">
+      <li>
+        <a class="{% block semester3 %} {% endblock %}" >Current Semester </a>
+        <ul>
+          <li><a>Courses</a></li>
+          <li><a>Realtime Calc</a></li>
+          <li><a>Notes</a></li>
+        </ul>
+      </li>
+      <li><a class="{% block addsem %} {% endblock %}">Add Semester</a></li>
+      <li><a class="{% block semester1 %} {% endblock %}">View History</a></li>
+    </ul>
+    <p class="menu-label">
+      Courses
+    </p>
+    <ul class="menu-list">
+      <li><a>View All</a></li>
+      <li><a>Remove courses</a></li>
+      <li><a>Notes</a></li>
+      <li>      </li>
+    </ul>
+
+    <br><br><br>
+    <button class="button is-light is-danger is-fullwidth">
+
+        <strong>Log Out</strong>
+
+    </button>
+    <!-- log out button -->
+
+
+  </aside>
+
+  <div class="container column is-10">
+    <div class="section ">
+      {% block main %}
+
+      {% endblock %}
+
+
+    </div>
+  </div>
+
+  </section>
+
+</body>
+
+</html>

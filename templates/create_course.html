@@ -1,0 +1,56 @@
+{% include 'header.html' %}
+    <!-- create a bootstrap form to create Course -->
+
+    <div class="card my-5">
+        <div class="card-body">
+
+    <div class="row">
+        <div class="col-md-12">
+
+
+            <h5>Add Course</h5>
+            <!-- write sometext here -->
+
+            <p>Create Course and add.</p>
+            <form action="/api/v1/createcourse" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="Coursename">Course Name</label>
+                    <input type="text" class="form-control" id="Coursename"  placeholder="Enter Course Name" name="Coursename">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="Coursedesc">Description</label>
+                    <textarea type="text" class="form-control" id="Coursedesc" placeholder="Enter Course Description" name="Coursedesc"></textarea>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="Coursecredits">Credits</label>
+                    <input type="number" class="form-control" id="Coursecredits" placeholder="Enter Course Credits" name="Coursecredits" value="">
+
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="faculty">Faculty</label>
+                    <input type="text" class="form-control" id="faculty"  placeholder="Enter Faculty name" name="faculty" value="">
+                </div>
+
+                <br>
+                <div class="form-group">
+                    <label for="Coursetype">Course Type </label>
+                    <input type="text" class="form-control" id="Coursetype"  placeholder="Enter Course Type(BFC, IFC, MA, etc.)" name="Coursetype">
+                </div>
+
+                <!-- submit button -->
+                <br>
+                <button type="submit" class="btn btn-secondary">Submit</button>
+                <br>
+                <script>
+
+                </script>
+        </div>
+    </div>
+
+        </div>
+    </div>
+
+{% include 'footer.html' %}

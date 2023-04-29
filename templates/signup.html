@@ -1,0 +1,51 @@
+{% extends "login_layout.html" %}
+{% block title %}Sign Up!{% endblock %}
+{% block form %}
+
+<form action="/registeruser" method="post">
+
+  <div class="columns is-size-7">
+    <div class="column is-size-7">
+      <label for="username">Name</label>
+      <input class="input " type="text" name="username" id="username" placeholder="Name">
+    </div>
+  </div>
+  <!-- college name, id number, branch,  -->
+
+  <div class="columns is-size-7">
+    <div class="column is-size-7">
+      <label for="clgname">College Name</label>
+      <input class="input " name="clgname" id="clgname" type="text" placeholder="College Name">
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column is-size-7">
+      <label for="misno">MIS No.</label>
+      <input class="input " name="misno" id="misno" type="text" placeholder="MIS">
+    </div>
+    <div class="column is-size-7">
+      <label for="userbranch">Branch</label>
+      <input class="input " type="text" name="userbranch" id="userbranch" placeholder="Branch">
+    </div>
+  </div>
+
+  <div class="columns is-size-7">
+
+    <div class="column is-size-7">
+      <label for="useremail">Email</label>
+      <input class="input " name="useremail" id="useremail" type="text" placeholder="Email address">
+    </div>
+    <div class="column is-size-7">
+      <label for="pass">Password</label>
+      <input class="input " name="pass" id="pass" type="password" placeholder="Password">
+    </div>
+  </div>
+  <div class="column">
+    <button class="button is-link is-fullwidth" style="background-color: black;" type="submit">Login</button>
+  </div>
+  <div class="has-text-centered">
+    <p class="is-size-7"> Already have an account? <a href="/login">Login</a>
+    </p>
+  </div>
+</form>
+{% endblock %}

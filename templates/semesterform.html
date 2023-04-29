@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block addsem %}
+is-active
+{% endblock %}
+
+{% block main %}
+
+
+<div class="columns">
+    <div class="column is-10">
+        <h1 class="title">Create semester</h1>
+    </div>
+    <div class="column is-2">
+        My Profile
+    </div>
+</div>
+
+<div class="columns">
+    <div class="column is-12">
+        <div class="card is-shadowless">
+            <div class="content">
+
+                <form action="/registeruser" method="post">
+
+                    <div class="columns is-size-7">
+                        <div class="column is-size-7">
+                            <label for="username">Semester Name</label>
+                            <input class="input " type="text" name="semname" id="semname" placeholder="Semester X">
+                        </div>
+                    </div>
+                    <!-- college name, id number, branch,  -->
+
+                    <div class="columns">
+                        <div class="column is-size-7 is-3">
+                            <label for="misno">From </label>
+                            <input class="input " name="misno" id="misno" type="date">
+                        </div>
+                        <div class="column is-size-7 is-3">
+                            <label for="misno">to</label>
+                            <input class="input " name="misno" id="misno" type="date">
+                        </div>
+                        <div class="column is-size-7 is-6">
+                            <label for="creaditsallowed">Credits Allowed</label>
+                            <input class="input " type="number" name="semname" id="semname" placeholder="27">
+                        </div>
+                    </div>
+
+                    <button class="button is-dark is-link " style="background-color: black;"
+                        type="submit">Create!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+<div class="container">
+
+    <h4 class="subtitle">
+
+    Recent Semesters
+    </h4>
+    <div class="card is-shadowless">
+
+            <div class="columns">
+                <div class="column is-3">
+                    <div class="card" style="border-left:5px solid black">
+                        <div class="card-content">
+
+                            <h4 class=" has-text-weight-semibold is-size-5">
+                                Semester 3
+                            </h4>
+
+                            <p class="my-1"> 5 credits registered</p>
+                            <p> Status: Completed</p>
+                            <p>7.98 CGPA</p>
+                            <button class="button my-2 is-dark is-small " > View</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock %}

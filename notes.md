@@ -30,3 +30,57 @@
   - pie chart for credit distribution [ top of semester ]
   - Graph showing if goals are met
   - Auto assign goals for each subject with respect to given gpa goals [if time persists]
+
+
+
+
+
+
+
+- Courses
+  - Add course 
+  - see all
+  - rm course 
+  - find course 
+
+- Semester 
+  - Add new sem 
+  - see all 
+  - rm sem 
+  - find sem 
+  - see statisics
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

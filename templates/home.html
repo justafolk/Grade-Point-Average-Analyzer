@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block home %}
+is-active
+{% endblock %}
+
+{% block main %}
+
+
+<div class="columns">
+    <div class="column is-10">
+        <h1 class="title">Home</h1>
+    </div>
+    <div class="column is-2">
+        My Profile
+    </div>
+</div>
+
+<div class="columns">
+    <div class="column is-8">
+        <div class="card is-shadowless">
+            <h1 class="subtitle">Todo </h1>
+            <div class="content">
+                <ul class="block-list is-small is-left">
+
+                    <li class="is-highlighted ">
+                        <label for="Item1" class="checkbox">
+                            <input type="checkbox" name="Item1" id="">
+                            Item one
+                        </label>
+                    </li>
+                    <li class="is-highlighted ">
+                        <label for="Item1" class="checkbox">
+                            <input type="checkbox" name="Item1" id="">
+                            Item one
+                        </label>
+                    </li>
+                    <li class="is-highlighted ">
+                        <label for="Item1" class="checkbox">
+                            <input type="checkbox" name="Item1" id="">
+                            Item one
+                        </label>
+                    </li>
+                    <li class="is-highlighted ">
+                        <label for="Item1" class="checkbox">
+                            <input type="checkbox" name="Item1" id="">
+                            Item one
+                        </label>
+                    </li>
+                    <li class="is-highlighted ">
+                        <label for="Item1" class="checkbox">
+                            <input type="checkbox" name="Item1" id="">
+                            Item one
+                        </label>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <div class="column is-4">
+
+        <div class="card is-shadowless">
+            <h1 class="subtitle">Upcoming Events</h1>
+            <div class="content">
+                <ul class="block-list is-small is-left">
+                    <li class="is-highlighted ">Item two <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time></li>
+                    <li class="is-highlighted ">Item two</li>
+                    <li class="is-highlighted ">Item two</li>
+                </ul>
+
+                <br>
+            </div>
+        </div>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered">
+                <div>
+                    <p class="heading">CGPA</p>
+                    <p class="title">7.56</p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered">
+                <div>
+                    <p class="heading">SGPA</p>
+                    <p class="title">7.69</p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered">
+                <div>
+                    <p class="heading">Goals True +ve</p>
+                    <p class="title">19</p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered">
+                <div>
+                    <p class="heading">Streak</p>
+                    <p class="title">56</p>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<div class="container">
+    <div class="card is-shadowless">
+
+        <h1 class="subtitle">Current Semester</h1>
+
+        <div class="columns">
+            <div class="column is-3">
+                <div class="card" style="border-left:5px solid black">
+                    <div class="card-content">
+
+                        <h4 class="subtitle has-text-weight-semibold is-size-6">
+                            Multivariate Calculus and Ordinary Differential Equations
+                        </h4>
+                        <p>IFC-4001 - 5 credits</p>
+                        <p>Aman Jhinga</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="column is-3">
+                <div class="card" style="border-left:5px solid black">
+                    <div class="card-content">
+
+                        <h4 class="subtitle has-text-weight-semibold is-size-6">
+                            Multivariate Calculus and Ordinary Differential Equations
+                        </h4>
+                        <p>IFC-4001 - 5 credits</p>
+                        <p>Aman Jhinga</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="column is-3">
+                <div class="card" style="border-left:5px solid black">
+                    <div class="card-content">
+
+                        <h4 class="subtitle has-text-weight-semibold is-size-6">
+                            Multivariate Calculus and Ordinary Differential Equations
+                        </h4>
+                        <p>IFC-4001 - 5 credits</p>
+                        <p>Aman Jhinga</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
