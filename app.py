@@ -29,6 +29,11 @@ def viewsemester():
 def viewcourses():
     return render_template('courseview.html', title="Home")
 
+@app.route('/semester/courses/create', methods=['GET'])
+def createcourses():
+    return render_template('createcourse.html', title="Home")
+
+
 @app.route('/semester/create')
 def onboarding():
     return render_template('semesterform.html', title="Onboarding")
@@ -61,17 +66,9 @@ def registeruser():
 
 
 
-@app.route('/course/create', methods=['GET', 'POST'])
-def createcourse():
-    return render_template('create_course.html', title="Create Course")
 
 @app.route('/api/v1/createcourse', methods=['POST'])
 def createcourseapi():
-    name = request.form['name']
-    credits = request.form['credits']
-    faculty = request.form['faculty']
-    course_type = request.form['course_type']
-    new_course = course(name, credits, faculty, course_type)
     return redirect('/course/list')
 
 @app.route('/course/list', methods=['GET'])

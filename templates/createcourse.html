@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block addsem %}
+is-active
+{% endblock %}
+
+{% block main %}
+
+
+<div class="columns">
+    <div class="column is-10">
+        <h1 class="title">Create Course</h1>
+    </div>
+    <div class="column is-2">
+        My Profile
+    </div>
+</div>
+
+<div class="columns">
+    <div class="column is-12">
+        <div class="card is-shadowless">
+            <div class="content">
+
+                <form action="/registeruser" method="post">
+
+                    <div class="columns is-size-7">
+                        <div class="column is-size-7">
+                            <label for="coursename">Course Name</label>
+                            <input class="input " type="text" name="coursename" id="coursename"
+                                placeholder="Theory of Computation">
+                        </div>
+                    </div>
+                    <!-- college name, id number, branch,  -->
+
+                    <div class="columns">
+                        <div class="column is-size-7 is-1">
+                            <label for="credits">Credits </label>
+                            <input class="input " type="number" name="credits" id="credits" placeholder="2">
+                        </div>
+                        <div class="column is-size-7 is-3">
+                            <label for="faculty">Faculty Name</label>
+                            <input class="input " name="faculty" id="faculty" type="text" placeholder="Dr. Test X">
+                        </div>
+                        <div class="column is-size-7 is-2">
+                            <label class="is-size-7" for="mark1">Marks Distribution1</label>
+                            <input class="input " type="number" name="mark1" id="mark1" placeholder="2">
+                        </div>
+                        <div class="column is-size-7 is-2">
+                            <label class="is-size-7" for="mark1">Marks Distribution2</label>
+                            <input class="input " type="number" name="mark1" id="mark1" placeholder="2">
+                        </div>
+                        <div class="column is-size-7 is-2">
+                            <label class="is-size-7" for="mark1">Marks Distribution3</label>
+                            <input class="input " type="number" name="mark1" id="mark1" placeholder="2">
+                        </div>
+                        <div class="column is-size-7 is-2">
+                            <label class="is-size-7" for="mark1">Marks Distribution4</label>
+                            <input class="input " type="number" name="mark1" id="mark1" placeholder="2">
+                        </div>
+                    </div>
+
+                    <div class="columns is-size-7">
+                        <div class="column is-size-7">
+                            <label for="coursetype">Course Type</label>
+                            <select class="input " name="coursetype" id="coursetype"
+                                placeholder="Theory of Computation">
+                                <option value='BSC'> BSC </option>
+                                <option value='MLC'> MLC</option>
+                                <option value='HSMC'>HSMC </option>
+                                <option value='SBC'> SBC </option>
+                                <option value='IFC'> IFC </option>
+                                <option value='PCC'> PCC </option>
+                                <option value='LC'> LC </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="columns is-size-7">
+                        <div class="column ">
+                            <label for="seniorsop">Q. Senior's advice on Scoring in this course.</label>
+                            <input id="seniorsop" class="slider has-output is-success is-fullwidth" min="0" max="100"
+                                value="50" step="1" type="range">
+                            <output for="seniorsop">50</output>
+                        </div>
+                        <div class="column ">
+                            <label for="friendsop">Q. Friend's opnions on Scoring in this course.</label>
+                            <input id="friendsop" class="slider has-output is-warning is-fullwidth" min="0" max="100"
+                                value="50" step="1" type="range">
+                            <output for="friendsop">50</output>
+                        </div>
+                    </div>
+                    <div class="columns is-size-7">
+                        <div class="column ">
+                            <label for="youop">Q. Your instincts on Scoring in this course.</label>
+                            <input id="youop" class="slider has-output is-info is-fullwidth" min="0" max="100"
+                                value="50" step="1" type="range">
+                            <output for="youop">50</output>
+                        </div>
+                    </div>
+
+                    <script>bulmaSlider.attach();</script>
+
+                    <button class="button is-dark is-link " style="background-color: black;"
+                        type="submit">Create!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

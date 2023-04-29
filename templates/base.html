@@ -9,7 +9,10 @@
   <title>{% block title %} {% endblock %}</title>
 
   <link rel="stylesheet" href="{{url_for('static', filename='/css/main.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='/css/bulma-slider.css')}}">
   {% endblock %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="{{url_for('static', filename='/js/bulma-slider.min.js')}}"></script>
 </head>
 
 <body> 

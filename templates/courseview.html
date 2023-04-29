@@ -28,10 +28,13 @@ is-active
                 <li class="is-active"><a  href="/semester/view/courses">Courses</a></li>
                 <li><a>Attainment(Marks)</a></li>
             </ul>
+            
         </div>
     </div>
 
 </div>
+
+<div class=" is-fullwidth column is-flex"></div>
 
 <div class="columns">
     <div class="column is-3">
@@ -43,8 +46,17 @@ is-active
                 </h4>
                 <p>IFC-4001 - 5 credits</p>
                 <p>Aman Jhinga</p>
+                <button class="button btn1 is-dark">Reveal</button>
+                <div class="data1">THIS IS DATA</div>
             </div>
-
+            <script>
+                // create jquery script to toggle data1 when button is clicked
+                $(document).ready(function(){
+                    $(".btn1").click(function(){
+                        $(".data1").toggle();
+                    });
+                });
+            </script>
         </div>
     </div>
     <div class="column is-3">
@@ -72,6 +84,22 @@ is-active
             </div>
 
         </div>
+    </div>
+
+    <div class="column is-3">
+        <a href="/semester/courses/create">
+
+        <div class="card is-shadowless" style="border: 1px grey dashed;">
+            <div class="card-content is-justify-content-center">
+                <h4 class="subtitle has-text-weight-semibold has-text-centered is-size-6" style="color: grey">
+                    +👾
+                    <br>
+                    Add Course
+                </h4>
+            </div>
+
+        </div>
+        </a>
     </div>
 </div>
 
