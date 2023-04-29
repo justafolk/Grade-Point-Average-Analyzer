@@ -23,7 +23,11 @@ def mainapp():
 
 @app.route('/semester/view', methods=['GET'])
 def viewsemester():
-    return render_template('index.html', title="Home")
+    return render_template('semview.html', title="Home")
+        
+@app.route('/semester/view/courses', methods=['GET'])
+def viewcourses():
+    return render_template('courseview.html', title="Home")
 
 @app.route('/semester/create')
 def onboarding():

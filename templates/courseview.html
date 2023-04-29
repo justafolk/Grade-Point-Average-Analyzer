@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block viewsem %}
+is-active
+{% endblock %}
+
+{% block main %}
+
+
+<div class="columns">
+    <div class="column is-10">
+        <h1 class="title">Semester IV</h1>
+    </div>
+    <div class="column is-2">
+        My Profile
+    </div>
+</div>
+
+
+<div class="columns">
+    <div class="column is-12">
+        <div class="tabs">
+            <ul>
+                <li ><a href="/semester/view">Dashboard</a></li>
+                <li class="is-active"><a  href="/semester/view/courses">Courses</a></li>
+                <li><a>Attainment(Marks)</a></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<div class="columns">
+    <div class="column is-3">
+        <div class="card" style="border-left:5px solid black">
+            <div class="card-content">
+
+                <h4 class="subtitle has-text-weight-semibold is-size-6">
+                    Multivariate Calculus and Ordinary Differential Equations
+                </h4>
+                <p>IFC-4001 - 5 credits</p>
+                <p>Aman Jhinga</p>
+            </div>
+
+        </div>
+    </div>
+    <div class="column is-3">
+        <div class="card" style="border-left:5px solid black">
+            <div class="card-content">
+
+                <h4 class="subtitle has-text-weight-semibold is-size-6">
+                    Multivariate Calculus and Ordinary Differential Equations
+                </h4>
+                <p>IFC-4001 - 5 credits</p>
+                <p>Aman Jhinga</p>
+            </div>
+
+        </div>
+    </div>
+    <div class="column is-3">
+        <div class="card" style="border-left:5px solid black">
+            <div class="card-content">
+
+                <h4 class="subtitle has-text-weight-semibold is-size-6">
+                    Multivariate Calculus and Ordinary Differential Equations
+                </h4>
+                <p>IFC-4001 - 5 credits</p>
+                <p>Aman Jhinga</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
