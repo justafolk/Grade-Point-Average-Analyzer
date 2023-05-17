@@ -46,6 +46,15 @@ input[type="color"]:focus,
 </head>
 
 <body>
+
+    <script>
+        function checkSession() {
+  const session = sessionStorage.getItem('session');
+  if (!session) {
+    window.location.href = '/login';
+  }
+}
+    </script>
     <!-- Navbar -->
    
     <!-- Navbar -->
