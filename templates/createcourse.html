@@ -7,24 +7,19 @@
 is-active
 {% endblock %}
 
+          {% block pagetitle %}
+Create Course
+          {% endblock %}
 {% block main %}
 
 
-<div class="columns">
-    <div class="column is-10">
-        <h1 class="title">Create Course</h1>
-    </div>
-    <div class="column is-2">
-        My Profile
-    </div>
-</div>
 
 <div class="columns">
     <div class="column is-12">
         <div class="card is-shadowless">
             <div class="content">
 
-                <form action="/registeruser" method="post">
+                <form action="/createCourse" method="post">
 
                     <div class="columns is-size-7">
                         <div class="column is-size-7">
@@ -33,7 +28,6 @@ is-active
                                 placeholder="Theory of Computation">
                         </div>
                     </div>
-                    <!-- college name, id number, branch,  -->
 
                     <div class="columns">
                         <div class="column is-size-7 is-1">
@@ -42,23 +36,23 @@ is-active
                         </div>
                         <div class="column is-size-7 is-3">
                             <label for="faculty">Faculty Name</label>
-                            <input class="input " name="faculty" id="faculty" type="text" placeholder="Dr. Test X">
+                            <input class="input " name="faculty" id="faculty" type="text" placeholder="Avdhut :)">
                         </div>
                         <div class="column is-size-7 is-2">
                             <label class="is-size-7" for="mark1">Marks Distribution1</label>
-                            <input class="input " type="number" name="mark1" id="mark1" placeholder="2">
+                            <input class="input " type="number" name="mark1" id="mark1" placeholder="2" value="0">
                         </div>
                         <div class="column is-size-7 is-2">
-                            <label class="is-size-7" for="mark1">Marks Distribution2</label>
-                            <input class="input " type="number" name="mark1" id="mark1" placeholder="2">
+                            <label class="is-size-7" for="mark2">Marks Distribution2</label>
+                            <input class="input " type="number" name="mark2" id="mark2" placeholder="2" value="0">
                         </div>
                         <div class="column is-size-7 is-2">
-                            <label class="is-size-7" for="mark1">Marks Distribution3</label>
-                            <input class="input " type="number" name="mark1" id="mark1" placeholder="2">
+                            <label class="is-size-7" for="mark3">Marks Distribution3</label>
+                            <input class="input " type="number" name="mark3" id="mark3" placeholder="2" value="0">
                         </div>
                         <div class="column is-size-7 is-2">
-                            <label class="is-size-7" for="mark1">Marks Distribution4</label>
-                            <input class="input " type="number" name="mark1" id="mark1" placeholder="2">
+                            <label class="is-size-7" for="mark4">Marks Distribution4</label>
+                            <input class="input " type="number" name="mark4" id="mark4" placeholder="2" value="0">
                         </div>
                     </div>
 
@@ -76,18 +70,23 @@ is-active
                                 <option value='LC'> LC </option>
                             </select>
                         </div>
+                        <div class="column">
+                            <label for="coursecode">Course Code</label>
+                            <input class="input " type="text" name="coursecode" id="coursecode"
+                                placeholder="IFC-4001">
+                        </div>
                     </div>
 
                     <div class="columns is-size-7">
                         <div class="column ">
                             <label for="seniorsop">Q. Senior's advice on Scoring in this course.</label>
-                            <input id="seniorsop" class="slider has-output is-circle is-small is-dark is-fullwidth" min="0" max="100"
+                            <input id="seniorsop" name="seniorsop" class="slider has-output is-circle is-small is-dark is-fullwidth" min="0" max="100"
                                 value="50" step="1" type="range">
                             <output for="seniorsop">50</output>
                         </div>
                         <div class="column ">
                             <label for="friendsop">Q. Friend's opnions on Scoring in this course.</label>
-                            <input id="friendsop" class="slider has-output is-circle is-small is-dark is-fullwidth" min="0" max="100"
+                            <input id="friendsop" name="friendsop" class="slider has-output is-circle is-small is-dark is-fullwidth" min="0" max="100"
                                 value="50" step="1" type="range">
                             <output for="friendsop">50</output>
                         </div>
@@ -95,11 +94,13 @@ is-active
                     <div class="columns is-size-7">
                         <div class="column ">
                             <label for="youop">Q. Your instincts on Scoring in this course.</label>
-                            <input id="youop" class="slider has-output is-circle is-small is-dark is-fullwidth" min="0" max="100"
+                            <input id="youop" name="youop" class="slider has-output is-circle is-small is-dark is-fullwidth" min="0" max="100"
                                 value="50" step="1" type="range">
                             <output for="youop">50</output>
                         </div>
                     </div>
+
+                    <input type="hidden" name="semester" value="{{semester}}">
 
                     <script>bulmaSlider.attach();</script>
 

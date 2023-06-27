@@ -32,6 +32,12 @@
   - Auto assign goals for each subject with respect to given gpa goals [if time persists]
 
 
+- Old course 
+  - username
+  - course name
+  - credits
+  - grade
+
 
 
 

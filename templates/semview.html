@@ -7,26 +7,21 @@
 is-active
 {% endblock %}
 
+
+          {% block pagetitle %}
+          {{semname}}
+          {% endblock %}
+
 {% block main %}
 
-
-<div class="columns">
-    <div class="column is-10">
-        <h1 class="title">Semester IV</h1>
-    </div>
-    <div class="column is-2">
-        My Profile
-    </div>
-</div>
 
 
 <div class="columns">
     <div class="column is-12">
         <div class="tabs">
             <ul>
-                <li class="is-active"><a href="/semester/view">Dashboard</a></li>
-                <li><a  href="/semester/view/courses">Courses</a></li>
-                <li><a>Attainment(Marks)</a></li>
+                <li class="is-active"><a href="/semester/view?semname={{semname}}">Dashboard</a></li>
+                <li><a  href="/semester/view/courses?semester={{semname}}">Courses</a></li>
             </ul>
         </div>
     </div>
@@ -39,27 +34,16 @@ is-active
         <div class="level-item has-text-centered">
             <div>
                 <p class="heading">CGPA</p>
-                <p class="title">7.56</p>
+                <p class="title">{{cgpa }}</p>
             </div>
         </div>
         <div class="level-item has-text-centered">
             <div>
                 <p class="heading">SGPA</p>
-                <p class="title">7.69</p>
+                <p class="title">{{sgpa}}</p>
             </div>
         </div>
-        <div class="level-item has-text-centered">
-            <div>
-                <p class="heading">Goals True +ve</p>
-                <p class="title">19</p>
-            </div>
-        </div>
-        <div class="level-item has-text-centered">
-            <div>
-                <p class="heading">Streak</p>
-                <p class="title">56</p>
-            </div>
-        </div>
+      
     </nav>
     </div>
 </div>
@@ -95,5 +79,81 @@ is-active
 
 
 </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+  <script>
+
+(async function() {
+
+    const data = {
+  labels: [
+    {% for i in courses %}
+        ' {{i.1}}',
+    {% endfor %}
+  ],
+  datasets: [{
+    label: 'SEMESTER IV',
+    data: [
+        
+    {% for i in courses %}
+        {{i.2}},
+    {% endfor %}
+    ],
+     hoverOffset: 4,
+     backgroundColor:["#1abc9c","#2ecc71","#3498db","#9b59b6","#34495e","#f1c40f","#e67e22","#e74c3c"]
+  }]
+};
+  new Chart(
+    document.getElementById('coursespie'),
+    {
+      type: 'pie',
+      data: data,
+      options: {
+        plugins: {
+            title: {
+                display: true,
+                text: 'Courses Weightage in Semester IV'
+            }
+        }
+    }
+    }
+  );
+
+
+
+
+const data2 = {
+    labels: [
+    {% for i in courses %}
+        ' {{abbreviate_sentence(i.1)}}',
+    {% endfor %}
+  ],
+  datasets: [{
+    label: 'SEMESTER IV',
+    data: [ {% for i in courses %}
+        {{i.2}},
+    {% endfor %}],
+     hoverOffset: 4,
+  tension: 0.1,
+     backgroundColor:["#1abc9c","#2ecc71","#3498db","#9b59b6","#34495e","#f1c40f","#e67e22","#e74c3c"]
+  }]
+};
+  new Chart(
+    document.getElementById('streakbar'),
+    {
+      type: 'line',
+      data: data2,
+      options: {
+        plugins: {
+            title: {
+                display: true,
+                text: 'Courses Weightage in Semester IV'
+            }
+        }
+    }
+    }
+  );
+})();
+  </script>
 
 {% endblock %}

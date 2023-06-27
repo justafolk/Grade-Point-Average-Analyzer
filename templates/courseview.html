@@ -7,101 +7,162 @@
 is-active
 {% endblock %}
 
+          {% block pagetitle %}
+            {{semester}}
+          {% endblock %}
 {% block main %}
 
-
-<div class="columns">
-    <div class="column is-10">
-        <h1 class="title">Semester IV</h1>
-    </div>
-    <div class="column is-2">
-        My Profile
-    </div>
-</div>
 
 
 <div class="columns">
     <div class="column is-12">
         <div class="tabs">
             <ul>
-                <li ><a href="/semester/view">Dashboard</a></li>
-                <li class="is-active"><a  href="/semester/view/courses">Courses</a></li>
-                <li><a>Attainment(Marks)</a></li>
+                <li><a href="/semester/view?semname={{semester}}">Dashboard</a></li>
+                <li class="is-active"><a href="/semester/view/courses?semname={{semester}}">Courses</a></li>
             </ul>
-            
+        <div class="field is-grouped">
+            <p class="control">
+                <a class="button is-small is-dark" href="/semester/courses/create?semester=Semester 4">
+                    <span class="icon">
+                        <i class="fas fa-plus"></i>
+                    </span>
+                    <span>Add Course</span>
+                </a>
+            </p>
+        </div>
+
         </div>
     </div>
 
 </div>
 
-<div class=" is-fullwidth column is-flex"></div>
+<nav class="level is-mobile">
+        <div class="level-item has-text-centered">
+            <div>
+                <p class="heading">CGPA</p>
+                <p class="title" id="cgpatag" name="cgpatag">7.56</p>
+            </div>
+        </div>
+        <div class="level-item has-text-centered">
+            <div>
+                <p class="heading">SGPA</p>
+                <p class="sgpatag title" name="sgpatag" id="sgpatag">7.69</p>
+            </div>
+        </div>
+    </nav>
 
+
+    {% for course in data %}
 <div class="columns">
-    <div class="column is-3">
+    <div class="column ">
         <div class="card" style="border-left:5px solid black">
             <div class="card-content">
 
-                <h4 class="subtitle has-text-weight-semibold is-size-6">
-                    Multivariate Calculus and Ordinary Differential Equations
-                </h4>
-                <p>IFC-4001 - 5 credits</p>
-                <p>Aman Jhinga</p>
-                <button class="button btn1 is-dark">Reveal</button>
-                <div class="data1">THIS IS DATA</div>
-            </div>
-            <script>
-                // create jquery script to toggle data1 when button is clicked
-                $(document).ready(function(){
-                    $(".btn1").click(function(){
-                        $(".data1").toggle();
-                    });
-                });
-            </script>
-        </div>
-    </div>
-    <div class="column is-3">
-        <div class="card" style="border-left:5px solid black">
-            <div class="card-content">
+                <div class="columns">
 
-                <h4 class="subtitle has-text-weight-semibold is-size-6">
-                    Multivariate Calculus and Ordinary Differential Equations
-                </h4>
-                <p>IFC-4001 - 5 credits</p>
-                <p>Aman Jhinga</p>
-            </div>
+                    <div class="column is-10">
+                        <h4 class="subtitle has-text-weight-semibold is-size-6"> {{course[1]}} </h4>
+                        <p>{{course[9]}} - {{course[2]}} credits</p>
+                        <p>{{course[3]}}</p>
 
-        </div>
-    </div>
-    <div class="column is-3">
-        <div class="card" style="border-left:5px solid black">
-            <div class="card-content">
+                        <div class="data{{course[0]}}">
+                            <br>
+                            <div class="columns">
+                            {% for i in course[4].items() %}
 
-                <h4 class="subtitle has-text-weight-semibold is-size-6">
-                    Multivariate Calculus and Ordinary Differential Equations
-                </h4>
-                <p>IFC-4001 - 5 credits</p>
-                <p>Aman Jhinga</p>
-            </div>
+                            <div class="column is-size-7 ">
+                                <input class="input marks" type="number" name="{{course[0]}}_{{i.0}}" id="{{course[0]}}_{{i.0}}"
+                                placeholder="{{i.value}}" value="{{i.1}}">
+                            </div>
+                            {% endfor %}
+                            </div>
+                        </div>
 
-        </div>
-    </div>
-
-    <div class="column is-3">
-        <a href="/semester/courses/create">
-
-        <div class="card is-shadowless" style="border: 1px grey dashed;">
-            <div class="card-content is-justify-content-center">
-                <h4 class="subtitle has-text-weight-semibold has-text-centered is-size-6" style="color: grey">
-                    +👾
+                    </div>
                     <br>
-                    Add Course
-                </h4>
-            </div>
+                    <div class="column">
+                        <button class="button is-white btn{{course[0]}} " id="btn{{course[0]}}"
+                            style="position: absolute; bottom: 0; right: 0;"><i class="fas fa-arrow-down"></i></button>
+                        <br>
+                    </div>
 
+                    {% if course[-3] == 0 %}
+                        <span class="tag is-danger">Level {{course[-3]}}</span>
+                    {% elif course[-3] == 1 %}
+                        <span class="tag is-warning">Level {{course[-3]}}</span>
+                    {% else %}
+                        <span class="tag is-success">Level {{course[-3]}}</span>
+
+                    {% endif %}
+
+                </div>
+            </div>
         </div>
-        </a>
     </div>
 </div>
+    {% endfor %}
 
 
+<script>
+  function updateCGPA() {
+    var marksValue = $(this).val(); // Get the value of the input element
+    var cgpaDivId = $(this).attr('name') || $(this).attr('id'); // Get the name or id of the input element
+
+    $.ajax({
+      url: '/api/marks/add',
+      method: 'GET',
+      data: { marks: cgpaDivId+'_'+marksValue },
+      success: function(response) {
+        $('#sgpatag').text(response);
+      },
+      error: function() {
+        console.error('Error retrieving data.');
+      }
+    });
+  }
+</script>
+<script>
+
+
+    $(document).ready(function () {
+        $("[class^='data']").hide();
+        $("button[class*='btn']").click(function () {
+            var className = $(this).attr("id");
+            $(this).find("i").toggleClass("fa-rotate-180");
+            var string = className.substring(className.lastIndexOf("btn") + 3);
+
+            $(".data" + string).toggle();
+            console.log("Button with class starting with 'btn' was clicked. Class name: " + className);
+        });
+
+
+    $.ajax({
+      url: '/api/calculate/cgpa',
+      method: 'GET',
+      data: {},
+      success: function(response) {
+        $('#cgpatag').text(response);
+      },
+      error: function() {
+        console.error('Error retrieving data.');
+      }
+    });
+    $.ajax({
+      url: '/api/calculate/gpa',
+      method: 'GET',
+      data: {},
+      success: function(response) {
+        $('#sgpatag').text(response);
+      },
+      error: function() {
+        console.error('Error retrieving data.');
+      }
+    });
+
+  $('.marks').on('change', updateCGPA);
+
+    });
+
+</script>
 {% endblock %}

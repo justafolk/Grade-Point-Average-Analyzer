@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block viewall %}
+is-active
+{% endblock %}
+
+
+          {% block pagetitle %}
+            View All
+          {% endblock %}
+
+{% block main %}
+
+
+
+<hr>
+
+
+
+    <h2 class="subtitle ">Semesters</h3>
+<div class="columns">
+  {% for i in semesters %}
+            <div class="column is-3 is-fullheight">
+                <div class="card is-fullheight" style="border-left:5px solid black; height: 100%;">
+                    <div class="card-content is-fullheight">
+
+                        <h4 class="subtitle has-text-weight-semibold is-size-6">
+                            {{ i.1}}
+                        </h4>
+                        <p>{{i.3}} credits</p>
+                        <p>{{i.2}}</p>
+                    </div>
+
+                </div>
+            </div>
+        {% endfor %}
+
+</div>
+
+    <h2 class="subtitle ">Courses</h3>
+<div class="columns">
+  {% for i in courses %}
+            <div class="column is-3 is-fullheight">
+                <div class="card is-fullheight" style="border-left:5px solid black; height: 100%;">
+                    <div class="card-content is-fullheight">
+
+                        <h4 class="subtitle has-text-weight-semibold is-size-6">
+                            {{ i.1}}
+                        </h4>
+                        <p>{{i.9}} - {{i.2}} credits</p>
+                        <p>{{i.3}}</p>
+                    </div>
+
+                </div>
+            </div>
+        {% endfor %}
+
+</div>
+
+
+<h2 class="subtitle">Old Semester Courses</h2>
+<div class="columns">
+  {% for i in old_courses %}
+    <div class="column is-3 is-fullheight">
+      <div class="card is-fullheight" style="border-left:5px solid black; height: 100%;">
+        <div class="card-content is-fullheight">
+          <h4 class="subtitle has-text-weight-semibold is-size-6"> {{ i.0 }} </h4>
+          <p>{{ i.1 }} credits</p>
+          <p>{{ i.3 }} </p>
+          {% if i.2 == 10 %}
+            <span class="tag is-success">AA</span>
+          {% elif i.2 == 9 %}
+            <span class="tag is-primary">AB</span>
+          {% elif i.2 == 8 %}
+            <span class="tag is-link">BB</span>
+          {% elif i.2 == 7 %}
+            <span class="tag is-info">BC</span>
+          {% elif i.2 == 6 %}
+            <span class="tag is-warning">CC</span>
+          {% else %}
+            <span class="tag is-danger">CD</span>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+
+
+
+{% endblock %}

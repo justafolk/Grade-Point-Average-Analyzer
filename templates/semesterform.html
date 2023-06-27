@@ -7,28 +7,23 @@
 is-active
 {% endblock %}
 
+          {% block pagetitle %}
+          Create Semester
+          {% endblock %}
 {% block main %}
 
 
-<div class="columns">
-    <div class="column is-10">
-        <h1 class="title">Create semester</h1>
-    </div>
-    <div class="column is-2">
-        My Profile
-    </div>
-</div>
 
 <div class="columns">
     <div class="column is-12">
         <div class="card is-shadowless">
             <div class="content">
 
-                <form action="/registeruser" method="post">
+                <form action="/createSemester" method="post">
 
                     <div class="columns is-size-7">
                         <div class="column is-size-7">
-                            <label for="username">Semester Name</label>
+                            <label for="semname">Semester Name</label>
                             <input class="input " type="text" name="semname" id="semname" placeholder="Semester X">
                         </div>
                     </div>
@@ -36,16 +31,16 @@ is-active
 
                     <div class="columns">
                         <div class="column is-size-7 is-3">
-                            <label for="misno">From </label>
-                            <input class="input " name="misno" id="misno" type="date">
+                            <label for="startdate">From </label>
+                            <input class="input " name="startdate" id="startdate" type="date">
                         </div>
                         <div class="column is-size-7 is-3">
-                            <label for="misno">to</label>
-                            <input class="input " name="misno" id="misno" type="date">
+                            <label for="enddate">to</label>
+                            <input class="input " name="enddate" id="enddate" type="date">
                         </div>
                         <div class="column is-size-7 is-6">
                             <label for="creaditsallowed">Credits Allowed</label>
-                            <input class="input " type="number" name="semname" id="semname" placeholder="27">
+                            <input class="input " type="number" name="creaditsallowed" id="creaditsallowed" placeholder="27">
                         </div>
                     </div>
 
@@ -67,12 +62,13 @@ is-active
     <div class="card is-shadowless">
 
             <div class="columns">
+    {% for sem in data %}
                 <div class="column is-3">
                     <div class="card" style="border-left:5px solid black">
                         <div class="card-content">
 
                             <h4 class=" has-text-weight-semibold is-size-5">
-                                Semester 3
+                                {{sem[1]}}
                             </h4>
 
                             <p class="my-1"> 5 credits registered</p>
@@ -83,10 +79,12 @@ is-active
 
                     </div>
                 </div>
-            </div>
 
+    {% endfor %}
+            </div>
         </div>
     </div>
+
 
 
 {% endblock %}

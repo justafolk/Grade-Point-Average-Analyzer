@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block creategoals %}
+is-active
+{% endblock %}
+
+{% block pagetitle %}
+Create Semester
+{% endblock %}
+{% block main %}
+
+
+<hr>
+
+<div class="columns is-centered">
+    <div class="column is-6">
+        <div class="card is-shadowless">
+            <div class="content">
+                <form action="/semester/create/goals" method="get">
+                    <div class="columns is-size-7">
+                        <div class="column is-size-7">
+                            <nav class="level is-mobile">
+                                <div class="level-item has-text-centered">
+                                    <div>
+                                        <p class="heading">CGPA</p>
+                                        <p class="title">{{cgpa }}</p>
+                                    </div>
+                                </div>
+                                <div class="level-item has-text-centered">
+                                    <div>
+                                        <p class="heading">SGPA</p>
+                                        <p class="title">{{sgpa}}</p>
+                                    </div>
+                                </div>
+                            </nav>
+                            <label for="targetgpa">Target GPA</label>
+                            <input class="input" type="text" name="targetgpa" id="targetgpa" placeholder="9.89">
+                        </div>
+                    </div>
+                    <button class="button is-dark is-link" style="background-color: black;"
+                        type="submit">Create!</button>
+                </form>
+            </div>
+        </div>
+        <br>
+        {% if getflag %}
+        <div class="card is-shadowless">
+            <div class="content">
+                <table class="table">
+                    <thead>
+                        <th>Course</th>
+                        <th>Credits</th>
+                        <th>Point</th>
+                        <th>Weight</th>
+                        <th>Grade</th>
+                    </thead>
+                    <tbody>
+                        {% for i,j in targets.items() %}
+                        <tr>
+
+                            <td>{{i}}</td>
+                            <td>{{j.0}}</td>
+                            <td>{{j.1}}</td>
+                            <td>{{j.1 * j.0}}</td>
+
+                            <td>
+
+                                {% if j.1 == 10 %}
+                                <span class="tag is-success">AA</span>
+                                {% elif j.1 == 9 %}
+                                <span class="tag is-primary">AB</span>
+                                {% elif j.1 == 8 %}
+                                <span class="tag is-link">BB</span>
+                                {% elif j.1 == 7 %}
+                                <span class="tag is-info">BC</span>
+                                {% elif j.1 == 6 %}
+                                <span class="tag is-warning">CC</span>
+                                {% else %}
+                                <span class="tag is-danger">CD</span>
+                                {% endif %}
+
+                            </td>
+                        </tr>
+                        {% endfor %}
+
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>SGPA</td>
+                            <td><strong>
+                                    {{expects}}
+                                </strong> </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

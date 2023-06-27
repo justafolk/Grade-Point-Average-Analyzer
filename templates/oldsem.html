@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block oldsem %}
+is-active
+{% endblock %}
+
+{% block pagetitle %}
+Add Old Semester Data
+{% endblock %}
+
+{% block main %}
+
+<div class="columns">
+    <div class="column is-12">
+        <div class="card is-shadowless">
+            <div class="content">
+
+                <form action="/createoldSemester" method="post">
+
+                    <div class="column is-size-7">
+                        <label for="semname">Semester Name</label>
+                        <input class="input" type="text" name="semname" id="semname" placeholder="Semester X">
+
+                    </div>
+
+
+
+                    <input type="hidden" name="countcourse" value="1">
+                    <div class=" column grades ">
+
+
+                            <div class="columns">
+                                <div class="is-1"> <h5 style="padding-top: 300%;" >1.</h5> </div>
+                                <div class="column is-size-7 is-6"><label for="course1">Course Name</label><input
+                                        class="input" type="text" name="course1" placeholder="Course Name"></div>
+                                <div class="column is-size-7 is-3"><label for="credits1">Credits</label><input
+                                        class="input" type="number" name="credits1" placeholder="2"></div>
+                                <div class="column is-size-7 is-3"><label for="grades1">Grade</label><input
+                                        class="input" type="text" name="grades1" placeholder="Grade"></div>
+                            </div>
+
+                    </div>
+
+                        <div class=" column field is-grouped">
+                            <p class="control">
+                                <a class="button is-small is-dark" id="add-course-button"
+                                    href="/semester/courses/create?semester=Semester 4">
+                                    <span class="icon">
+                                        <i class="fas fa-plus"></i>
+                                    </span>
+                                    <span>Add Course</span>
+                                </a>
+                            </p>
+                        </div>
+
+                    <button class="button is-dark is-link" style="background-color: black;"
+                        type="submit">Create!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery script -->
+<script>
+    $(document).ready(function () {
+        var i = 1;
+        $('#add-course-button').click(function (e) {
+            e.preventDefault();
+            i = i + 1;
+            // Create the input fields
+            var columnDiv = $('<div>').addClass('columns');
+
+            var indexlabel = $('<div>').addClass('is-1')
+            var indexlabelh = $('<h5>').addClass(i).attr({'style':'padding-top: 300%;'});
+
+                indexlabelh.append(i+'.');
+            var courseDiv = $('<div>').addClass('column is-size-7 is-6');
+            var courseLabel = $('<label>').attr('for', 'course' + i).text('Course Name');
+            var courseInput = $('<input>').addClass('input').attr({
+                'type': 'text',
+                'name': 'course' + i,
+                'placeholder': 'Course Name'
+            });
+
+            var creditsDiv = $('<div>').addClass('column is-size-7 is-3');
+            var creditsLabel = $('<label>').attr('for', 'credits' + i).text('Credits');
+            var creditsInput = $('<input>').addClass('input').attr({
+                'type': 'number',
+                'name': 'credits' + i,
+                'placeholder': '2'
+            });
+
+            var gradeDiv = $('<div>').addClass('column is-size-7 is-3');
+            var gradeLabel = $('<label>').attr('for', 'grades' + i).text('Grade');
+            var gradeInput = $('<input>').addClass('input').attr({
+                'type': 'text',
+                'name': 'grades' + i,
+                'placeholder': 'Grade'
+            });
+            $('input[name="countcourse"]').val(i);
+
+            // Append the inputs to the grades div
+            $('.grades').append(
+                columnDiv.append(
+                    indexlabel.append(indexlabelh),
+                    courseDiv.append(courseLabel, courseInput),
+                    creditsDiv.append(creditsLabel, creditsInput),
+                    gradeDiv.append(gradeLabel, gradeInput)
+                )
+            );
+        });
+    });
+
+
+</script>
+
+{% endblock %}

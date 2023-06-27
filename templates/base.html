@@ -13,6 +13,9 @@
   {% endblock %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="{{url_for('static', filename='/js/bulma-slider.min.js')}}"></script>
+<!-- Add Font Awesome CSS link to your HTML file -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
 </head>
 
 <body> 
@@ -29,15 +32,14 @@
     <br>
     <ul class="menu-list">
       <li><a class="{% block home %} {% endblock %}" href="/home">Home</a></li>
-      <li><a class="{% block myprofile %} {% endblock %}">My Profile</a></li>
-      <li><a class="{% block changepass %} {% endblock %}">Change Password</a></li>
     </ul>
     <p class="menu-label">
       Semesters
     </p>
     <ul class="menu-list">
       <li>
-        <a class="{% block semester3 %} {% endblock %}" href="/semester/view">Current Semester </a>
+
+        <a class="{% block viewsem %} {% endblock %}" href="/semester/view?semname={{ session['currentsem']}}">Current Semesters</a>
         <ul>
           <li><a>Courses</a></li>
           <li><a>Realtime Calc</a></li>
@@ -45,16 +47,15 @@
         </ul>
       </li>
       <li><a class="{% block addsem %} {% endblock %}" href="/semester/create">Add Semester</a></li>
-      <li><a class="{% block viewsem %} {% endblock %}" href="/semester/view">View Semesters</a></li>
+      <li><a class="{% block creategoals %} {% endblock %}" href="/semester/create/goals">Create Goals</a></li>
+
+      <li><a class="{% block oldsem %} {% endblock %}" href="/semester/old/add">Add Old Semester Data</a></li>
     </ul>
     <p class="menu-label">
       Courses
     </p>
     <ul class="menu-list">
-      <li><a>View All</a></li>
-      <li><a>Remove courses</a></li>
-      <li><a>Notes</a></li>
-      <li>      </li>
+      <li><a class="{% block viewall%} {%endblock%}" href="/viewall">View All</a></li>
     </ul>
 
     <br><br><br>
@@ -70,6 +71,29 @@
 
   <div class="container column is-10">
     <div class="section ">
+
+<div class="columns">
+    <div class="column is-10">
+        <h1 class="title">
+          {% block pagetitle %}
+          {% endblock %}
+        
+        </h1>
+    </div>
+    <div class="column is-2">
+<figure class="image " style="display: flex;">
+  <span class="is-size-6" style="margin-left: 5px;" >
+
+
+  {{session["name"]}}
+  <p class="is-size-7">
+
+  {{session["username"]}}
+  </p>
+  </span>
+</figure>
+    </div>
+</div>
       {% block main %}
 
       {% endblock %}
@@ -79,97 +103,20 @@
   </div>
 
   </section>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+</body>
+
   <script>
     var now = new Date();
     var hour = now.getHours();
     var greeting = document.getElementById('greeting');
 
     if (hour < 12) {
-      greeting.innerText = 'Good Morning, Avdhut! 🌞';
+      greeting.innerText = 'Good Morning, {{session["name"]}}! 🌞';
     } else if (hour < 18) {
-      greeting.innerText = 'Good Afternoon, Avdhut! ☀️';
+      greeting.innerText = 'Good Afternoon, {{session["name"]}}! ☀️';
     } else {
-      greeting.innerText = 'Good Evening, Avdhut! 🌙';
+      greeting.innerText = 'Good Evening, {{session["name"]}}! 🌙';
     }
   </script>
-  <script>
-
-(async function() {
-
-    const data = {
-  labels: [
- 'MVCDE',
- 'TOC',
- 'BFE',
- 'DC',
- 'MPT',
- 'RPPOOP',
- 'SA',
- 'DSA',
-  ],
-  datasets: [{
-    label: 'SEMESTER IV',
-    data: [5, 4, 3, 3, 3, 2, 2, 2],
-     hoverOffset: 4,
-     backgroundColor:["#1abc9c","#2ecc71","#3498db","#9b59b6","#34495e","#f1c40f","#e67e22","#e74c3c"]
-  }]
-};
-  new Chart(
-    document.getElementById('coursespie'),
-    {
-      type: 'pie',
-      data: data,
-      options: {
-        plugins: {
-            title: {
-                display: true,
-                text: 'Courses Weightage in Semester IV'
-            }
-        }
-    }
-    }
-  );
-
-
-
-
-const data2 = {
-  labels: [
- 'MVCDE',
- 'TOC',
- 'BFE',
- 'DC',
- 'MPT',
- 'RPPOOP',
- 'SA',
- 'DSA',
-  ],
-  datasets: [{
-    label: 'SEMESTER IV',
-    data: [5, 4, 3, 3, 3, 2, 2, 2],
-     hoverOffset: 4,
-  tension: 0.1,
-     backgroundColor:["#1abc9c","#2ecc71","#3498db","#9b59b6","#34495e","#f1c40f","#e67e22","#e74c3c"]
-  }]
-};
-  new Chart(
-    document.getElementById('streakbar'),
-    {
-      type: 'line',
-      data: data2,
-      options: {
-        plugins: {
-            title: {
-                display: true,
-                text: 'Courses Weightage in Semester IV'
-            }
-        }
-    }
-    }
-  );
-})();
-  </script>
-</body>
 
 </html>
