@@ -92,7 +92,8 @@ is-active
     {% endfor %}
   ],
   datasets: [{
-    label: 'SEMESTER IV',
+
+    label: '{{semname}}',
     data: [
         
     {% for i in courses %}
@@ -112,7 +113,7 @@ is-active
         plugins: {
             title: {
                 display: true,
-                text: 'Courses Weightage in Semester IV'
+                text: 'Courses Weightage in {{semname}}'
             }
         }
     }
@@ -129,7 +130,7 @@ const data2 = {
     {% endfor %}
   ],
   datasets: [{
-    label: 'SEMESTER IV',
+    label: '{{semname}}',
     data: [ {% for i in courses %}
         {{i.2}},
     {% endfor %}],
@@ -147,7 +148,7 @@ const data2 = {
         plugins: {
             title: {
                 display: true,
-                text: 'Courses Weightage in Semester IV'
+                text: 'Courses Weightage in {{semname}}'
             }
         }
     }
