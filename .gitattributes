@@ -1,0 +1,5 @@
+# Ignore HTML from language stats
+*.html linguist-detectable=false
+
+# Ensure Python is counted
+*.py linguist-detectable=true
